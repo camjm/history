@@ -1,5 +1,5 @@
 # History
-A demo of HTML5 history API
+A demo of HTML5 History API
 
 The HTML 5 History API is a standardized way to manipulate the browser history via script. In HTML 5 entries can be added to the browser history, visibly changing the URL in the location bar without triggering a full page refresh. A new event is also fired when those entries are removed from the history stack via the browser's back button. This means that, in script-heavy web apps like Single Page Applications (SPA), the URL in the browser location bar can still act as the unique identifier for the current resource.
 
@@ -9,3 +9,5 @@ The HTML 5 History API is a standardized way to manipulate the browser history v
 3. The browser location bar is manually updated with the new URL (using the HTML 5 History API).
 
 This results in a DOM and a URL just as if standard navigation (full-page refresh) had been used, but uses less network traffic, and hopefully a better performance without the user perceiving any difference in the navigation.
+
+Because the standard link navigation (full refresh) has been interrupted (now artificially going forward using .pushState()), the pages don't get added to the standard browser history. There is only 1 page in the history stack. Instead, a new artificial navigation event, 'popstate', needs to be handled to do the work.
